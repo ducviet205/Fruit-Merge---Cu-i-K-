@@ -11,34 +11,41 @@ public class GameManager : MonoBehaviour
     public Text scoreText, maxScoreText;
     public GameObject winPanel;
     public CanvasUiManager canvasUiManagerS;
+    private bool winScheduled;
+    private bool hasWon;
 
     void Start()
     {
-        int currentLevelNo;
+        maxScore = PlayerPrefs.GetInt("ReachScore", 50);
+        PlayerPrefs.SetInt("ReachScore", maxScore);
+        maxScoreText.text = "Target " + maxScore.ToString();
 
-        currentLevelNo = PlayerPrefs.GetInt("LevelNo", 1);
-
-      
-            maxScore = PlayerPrefs.GetInt("ReachScore", 50);
-            PlayerPrefs.SetInt("ReachScore", maxScore);
-            maxScoreText.text = "Target " + maxScore.ToString();
-
-            Debug.Log("score"+ maxScore);
-        
+        Debug.Log("score" + maxScore);
     }
 
     void Update()
     {
         scoreText.text = score.ToString();
+        AchievementManager.Instance.RecordScore(score);
 
-        if (score >= maxScore)
+        if (!winScheduled && !hasWon && score >= maxScore)
         {
+            winScheduled = true;
             Invoke("Win", 1);
         }
     }
 
     public void Win()
     {
+        if (hasWon)
+        {
+            return;
+        }
+
+        hasWon = true;
+        winScheduled = false;
+        StoreData.AddCoins(StoreData.GetWinReward(score));
+        AchievementManager.Instance.RecordWin();
         Time.timeScale = 0;
         winPanel.SetActive(true);
     }

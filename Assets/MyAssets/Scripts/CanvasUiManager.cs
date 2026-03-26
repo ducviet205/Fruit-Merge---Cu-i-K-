@@ -9,6 +9,7 @@ public class CanvasUiManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             PlayerPrefs.DeleteAll();
+            AchievementManager.Instance.ReloadStateFromPlayerPrefs();
         }
     }
 

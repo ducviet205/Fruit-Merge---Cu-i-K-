@@ -24,6 +24,7 @@ public class PlusManager : MonoBehaviour
         if (plusBallSpawn2)
         {
             gameManagerS.score += 1;
+            AchievementManager.Instance.RecordMerge(4, gameManagerS.score);
 
             plusBall4.GetComponent<Rigidbody2D>().simulated = true;
             plusBall4.transform.Find("Smoke").gameObject.SetActive(true);
@@ -34,6 +35,7 @@ public class PlusManager : MonoBehaviour
         if (plusBallSpawn4)
         {
             gameManagerS.score += 2;
+            AchievementManager.Instance.RecordMerge(8, gameManagerS.score);
 
             plusBall8.GetComponent<Rigidbody2D>().simulated = true;
             plusBall8.transform.Find("Smoke").gameObject.SetActive(true);
@@ -44,6 +46,7 @@ public class PlusManager : MonoBehaviour
         if (plusBallSpawn8)
         {
             gameManagerS.score += 3;
+            AchievementManager.Instance.RecordMerge(16, gameManagerS.score);
 
             plusBall16.GetComponent<Rigidbody2D>().simulated = true;
             plusBall16.transform.Find("Smoke").gameObject.SetActive(true);
@@ -54,6 +57,7 @@ public class PlusManager : MonoBehaviour
         if (plusBallSpawn16)
         {
             gameManagerS.score += 4;
+            AchievementManager.Instance.RecordMerge(32, gameManagerS.score);
 
             plusBall32.GetComponent<Rigidbody2D>().simulated = true;
             plusBall32.transform.Find("Smoke").gameObject.SetActive(true);
@@ -64,6 +68,7 @@ public class PlusManager : MonoBehaviour
         if (plusBallSpawn32)
         {
             gameManagerS.score += 5;
+            AchievementManager.Instance.RecordMerge(64, gameManagerS.score);
 
             plusBall64.GetComponent<Rigidbody2D>().simulated = true;
             plusBall64.transform.Find("Smoke").gameObject.SetActive(true);
@@ -74,6 +79,7 @@ public class PlusManager : MonoBehaviour
         if (plusBallSpawn64)
         {
             gameManagerS.score += 6;
+            AchievementManager.Instance.RecordMerge(128, gameManagerS.score);
 
             plusBall128.GetComponent<Rigidbody2D>().simulated = true;
             plusBall128.transform.Find("Smoke").gameObject.SetActive(true);
@@ -84,6 +90,7 @@ public class PlusManager : MonoBehaviour
         if (plusBallSpawn128)
         {
             gameManagerS.score += 7;
+            AchievementManager.Instance.RecordMerge(256, gameManagerS.score);
 
             plusBall256.GetComponent<Rigidbody2D>().simulated = true;
             plusBall256.transform.Find("Smoke").gameObject.SetActive(true);
@@ -94,6 +101,7 @@ public class PlusManager : MonoBehaviour
         if (plusBallSpawn256)
         {
             gameManagerS.score += 8;
+            AchievementManager.Instance.RecordMerge(512, gameManagerS.score);
 
             plusBall512.GetComponent<Rigidbody2D>().simulated = true;
             plusBall512.transform.Find("Smoke").gameObject.SetActive(true);
